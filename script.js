@@ -21,9 +21,14 @@ window.addEventListener("load", function () {
             <div class="bio">
                <h3>${json[i].firstName} ${json[i].lastName}</h3>
                <ul>
-                  <li>Hours in space: ${json[i].hoursInSpace}</li>
-                  <li>Active: ${json[i].active}</li>
-                  <li>Skills: `;
+                  <li>Hours in space: ${json[i].hoursInSpace}</li>`
+                if (json[i].active === true) {
+                    template += `<li class = "green">Active: ${json[i].active}</li>`
+                } else {
+                    template += `<li>Active: ${json[i].active}</li>`
+                }
+
+                template += `<li>Skills: `;
                 for (let j in json[i].skills) {
                     template += `${json[i].skills[j]}`;
                     if (j < json[i].skills.length - 1) {
